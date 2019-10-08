@@ -4,7 +4,8 @@ import { Page } from 'react-onsenui';
 function Terrain() {
   return (
     <Page>
-      <p>Welcome to the Terrain page!</p>
+      <h1>Georgia Tech Geography & Map</h1>
+      <h1>Georgia Tech Surrounding Areas</h1>
     </Page>
   )
 }

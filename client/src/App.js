@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigator, Page, Toolbar, BackButton, ToolbarButton, Icon, SplitterContent, Splitter, SplitterSide, List, ListHeader, ListItem } from 'react-onsenui';
+import { Page, Toolbar, ToolbarButton, Icon, SplitterContent, Splitter, SplitterSide, List, ListHeader, ListItem } from 'react-onsenui';
 
 import Gear from './components/Gear';
 import Terrain from './components/Terrain';
@@ -14,8 +14,10 @@ import './App.css';
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'change-menu-open':
-      return { ...state, menuOpen: action.menuOpen };
+    case 'menu-open':
+      return { ...state, menuOpen: true };
+    case 'menu-close':
+      return { ...state, menuOpen: false };
     case 'change-current-page':
       return { ...state, currentPage: action.page, menuOpen: false };
     default:
@@ -35,7 +37,7 @@ function App() {
     return (
       <Toolbar>
         <div className='left'>
-          <ToolbarButton onClick={openMenu}>
+          <ToolbarButton onClick={state.menuOpen ? closeMenu : openMenu}>
             <Icon icon={{default: 'md-menu'}} />
           </ToolbarButton>
         </div>
@@ -47,20 +49,11 @@ function App() {
   };
 
   const closeMenu = () => {
-    dispatch({ type: 'change-menu-open', menuOpen: false });
+    dispatch({ type: 'menu-close' });
   };
 
   const openMenu = () => {
-    dispatch({ type: 'change-menu-open', menuOpen: true });
-  };
-
-  const onMenuClick = (event, navigator) => {
-    navigator.pushPage({
-      title: event.target.innerText,
-    }, {
-      animation: 'slide',
-    });
-    closeMenu();
+    dispatch({ type: 'menu-open' });
   };
 
   const _renderPage = () => {
@@ -69,6 +62,10 @@ function App() {
         return <Combat />;
       case 'Gear':
         return <Gear />;
+      case 'Terrain':
+        return <Terrain />;
+      case 'Zombies':
+        return <Zombies />;
       default:
         return <Home />;
     }
@@ -88,7 +85,6 @@ function App() {
           <Page>
             <List
               dataSource={['Home', 'Combat', 'Gear', 'Terrain', 'Zombies']}
-              renderHeader={() => <ListHeader>Menu</ListHeader>}
               renderRow={(item) =>
                 <ListItem
                   onClick={() => dispatch({
@@ -105,7 +101,7 @@ function App() {
           </Page>
         </SplitterSide>
 
-        <SplitterContent>
+        <SplitterContent className='content'>
           {_renderPage()}
         </SplitterContent>
       </Splitter>

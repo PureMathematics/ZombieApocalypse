@@ -4,7 +4,7 @@ import { Page } from 'react-onsenui';
 function Combat() {
   return (
     <Page>
-      <p>Welcome to the Combat page!</p>
+      <h1>Usage of Weapons</h1>
     </Page>
   )
 }
