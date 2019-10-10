@@ -25,6 +25,9 @@ function Zombies() {
       <Card>
         They have excellent sounding. Not only can they detect -- but also, they can determine its direction. However, zombies are attracted by any sounds, not just those made by living creatures.
       </Card>
+      <Card>
+        The only true way to permanently terminate a zombie is to have a group of GT students sing Ramblin' Wreck for the full length of the song. This should be used sparingly in the case a cure is found and can convert zombies back to humans.
+      </Card>
     </Page>
   )
 }

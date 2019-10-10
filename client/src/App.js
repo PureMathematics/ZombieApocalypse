@@ -84,7 +84,13 @@ function App() {
           swipeable={true}>
           <Page>
             <List
-              dataSource={['Home', 'Combat', 'Gear', 'Terrain', 'Zombies']}
+              dataSource={[
+                'Home',
+                'Combat',
+                'Gear',
+                // 'Terrain',
+                'Zombies'
+              ]}
               renderRow={(item) =>
                 <ListItem
                   onClick={() => dispatch({

@@ -37,12 +37,31 @@ function Gear() {
             <img src={waterbottle} style={{ height: 200, margin: '0 auto' }} />
           </Card>
           <Card>
-            <h2>Blunt Weapon</h2>
+            <h2>Blunt Weapon (Bat)</h2>
             <p>
               Necessary for dealing with inevitable zombie encounters, more on good blunt weapon practices can be seen in the Combat Strategies page in this app.
             </p>
             <img src={weapon} style={{ height: 200, margin: '0 auto' }} />
-          </Card></>
+          </Card>
+          <Card>
+            <h2>Crowbar</h2>
+            <p>
+              A versitile tool that can be used to open doors, pry objects, and can double as a weapon.
+            </p>
+          </Card>
+          <Card>
+            <h2>Sharp Knife</h2>
+            <p>
+              A quick way to inflict quick and sharp pain and takes up minimal space.
+            </p>
+          </Card>
+          <Card>
+            <h2>Ranged Weapon</h2>
+            <p>
+              Can be useful in most situations where zombies cannot harm you. This weapon should be used sparingly because it can attract unnecessary attention.
+            </p>
+          </Card>
+          </>
         : null}
       <Card onClick={() => changeOptionalToolsOpen(!optionalToolsOpen)} style={{ display: 'flex', alignItems: 'center' }}>
         <Icon size={{default: 32}} icon={{default: `md-caret-${optionalToolsOpen ? 'up' : 'down'}-circle`}} style={{ marginRight: 10 }} /><h1>Optional Tools</h1>
