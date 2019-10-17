@@ -35,13 +35,37 @@ function Combat() {
         <p>
           It is important that you have the necessary tools to get you out of most situations. We provide a list of basic tools and strategies that you will need that will prove to be helpful in a zombie encounter. While this is not an exhaustive list, these tools will provide assistance in the vast majority of encounters here at Georgia Tech.
         </p>
-        <h1>
-          Necessary Tools
-        </h1>
-        <Card style={{ backgroundColor: '#333333', margin: 0 }}>Welcome</Card>
-        <h1>
-          Optional Tools
-        </h1>
+        <Card className='dark'>
+          <h2>Disable</h2>
+          <p>
+          	The zombies cannot be fully terminated unless you use a very specific method. Do not aim to kill the zombie; aim to <strong>DISABLE</strong> it.
+          </p>
+        </Card>
+        <Card className='dark'>
+          <h2>Aim for Joints</h2>
+          <p>
+          	Zombies have the same nervous system and bone structure as humans. Rendering them immobile by hitting their <strong>KNEES, ELBOWS, or SPINE</strong> is a good idea.
+          </p>
+          <ul>
+            <li>Aiming at the knees is the best option, as it is easy to reach, and can hinder zombie movement the most.</li>
+            <li>Aiming at the arms is useful when you are in a close quarters situation where you do not want to be caught, or you have high ground and can't reach the knees.</li>
+            <li>Only aim for the spine if you are confident that your strength is enough to break a spine. Even so, getting behind a zombie's back may be hard and not worth.</li>
+          </ul>
+        </Card>
+        <Card className='dark'>
+          <h2>Attempt Termination at Your Own Risk</h2>
+          <p>
+          	Termination of these zombies is immensely difficult it requires:
+          </p>
+          <ul>
+            <li>Multiple Georgia Tech students</li>
+            <li>All present students' knowledge of the entire Ramblin' Wreck song</li>
+            <li>Enough time and space to perform the entire song</li>
+          </ul>
+          <p>
+          	If all these conditions are fulfilled, attempt termination by singing the Ramblin' Wreck song live to the zombies. This could be fruitful if successful, as the process can terminate all zombies within hearing range.
+          </p>
+        </Card>
       </div>
     </div>
     //   <Card>
