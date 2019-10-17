@@ -2,10 +2,13 @@ import React from 'react';
 import { Page, Toolbar, ToolbarButton, Icon, SplitterContent, Splitter, SplitterSide, List, ListHeader, ListItem } from 'react-onsenui';
 
 import Gear from './components/Gear';
-import Terrain from './components/Terrain';
+import Geography from './components/Geography';
 import Zombies from './components/Zombies';
 import Home from './components/Home';
 import Combat from './components/Combat';
+import Terrain from './components/Terrain';
+import Rules from './components/Rules';
+import Credits from './components/Credits';
 
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
@@ -62,56 +65,74 @@ function App() {
         return <Combat />;
       case 'Gear':
         return <Gear />;
-      case 'Terrain':
-        return <Terrain />;
       case 'Zombies':
         return <Zombies />;
+      case 'Geography':
+        return <Geography />;
+      case 'Terrain':
+        return <Terrain />;
+      case 'Rules':
+        return <Rules />;
+      case 'Credits':
+        return <Credits />;
       default:
         return <Home />;
     }
   };
 
   return (
-    <Page renderToolbar={() => _renderToolbar(state.currentPage)}>
-      <Splitter>
-        <SplitterSide
-          side='left'
-          isOpen={state.menuOpen}
-          onClose={closeMenu}
-          onOpen={openMenu}
-          collapse={true}
-          width={240}
-          swipeable={true}>
-          <Page>
-            <List
-              dataSource={[
-                'Home',
-                'Combat',
-                'Gear',
-                // 'Terrain',
-                'Zombies'
-              ]}
-              renderRow={(item) =>
-                <ListItem
-                  onClick={() => dispatch({
-                    type: 'change-current-page',
-                    page: item,
-                  })}
-                  key={`menu-item-${item}`}
-                  modifier='longdivider'
-                  tappable>
-                  {item}
-                </ListItem>
-              }
-            />
-          </Page>
-        </SplitterSide>
+    <div className='main'>
+      <Page renderToolbar={() => _renderToolbar(state.currentPage)}>
+        <Splitter>
+          <SplitterSide
+            side='left'
+            isOpen={state.menuOpen}
+            onClose={closeMenu}
+            onOpen={openMenu}
+            collapse={true}
+            width={240}
+            swipeable={true}>
+            <Page>
+              <List
+                dataSource={[
+                  'Home',
+                  'Combat',
+                  'Geography',
+                  'Gear',
+                  'Rules',
+                  'Terrain',
+                  'Zombies',
+                  'Credits',
+                ]}
+                renderRow={(item) =>
+                  <ListItem
+                    onClick={() => dispatch({
+                      type: 'change-current-page',
+                      page: item,
+                    })}
+                    key={`menu-item-${item}`}
+                    modifier='longdivider'
+                    tappable>
+                    {item}
+                  </ListItem>
+                }
+              />
+            </Page>
+          </SplitterSide>
 
-        <SplitterContent className='content'>
-          {_renderPage()}
-        </SplitterContent>
-      </Splitter>
-    </Page>
+          <SplitterContent>
+            <div style={{
+              height: '100%',
+              overflowY: 'auto',
+              backgroundColor: 'black',
+            }}>
+              {_renderPage()}
+
+            </div>
+          </SplitterContent>
+        </Splitter>
+      </Page>
+    </div>
   );
 }
 
